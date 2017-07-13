@@ -41,13 +41,13 @@ Server::~Server() {
 }
 
 void Server::OnMarketData(
-    struct DFITCMarketDataFieldXQN * pMarketDataField) {
+    struct DFITCMarketDataFieldXQN* pMarketDataField) {
   XING_TRACE <<"Server::OnMarketData()";
 
-  // speed_file_->putData(toSpeedMData(data->m_symbol,
-  //                                   data->m_update_time,
-  //                                   data->m_millisecond
-                                    // ) );
+  speed_file_->putData(toSpeedMData(pMarketDataField->Instrument,
+                                    pMarketDataField->UpdateTime,
+                                    pMarketDataField->UpdateMillisec
+                                    ));
 }
 
 
